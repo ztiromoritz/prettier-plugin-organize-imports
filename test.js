@@ -133,3 +133,19 @@ export default defineComponent({
 
 	t.is(formattedCode, code);
 });
+
+
+test('Keep components', (t) => {
+	const code = `<template>
+  <MyComponent></MyComponent>
+</template>
+<script>
+import MyComponent from "MyComponent.vue";
+</script>
+<style></style>
+`;
+
+	const formattedCode = prettify(code, { filepath: 'file.vue' });
+
+	t.is(formattedCode, code);
+});
